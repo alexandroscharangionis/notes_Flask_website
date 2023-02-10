@@ -22,6 +22,7 @@ def sign_up():
         password1 = request.form.get("password1")
         password2 = request.form.get("password2")
 
+        # If form input is incorrect, use Flask's 'flash' method to store error/ success message
         if len(email) < 4:
             flash("E-mail must be at least 4 characters.", category="error")
         elif len(first_name) < 2:
