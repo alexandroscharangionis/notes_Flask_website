@@ -1,6 +1,16 @@
-{% extends "base.html" %}
-{% block title %}Sign-up{% endblock %}
-
-{% block content %}
-<h1>This is my sign-up page</h1>
+{% extends "base.html" %} {% block title %}Sign-up{% endblock %} {% block
+content %}
+<form method="post" action="">
+  <h3 align="center">Sign up</h3>
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input
+      class="form-control"
+      type="email"
+      name="email"
+      id="email"
+      placeholder="Enter email"
+    />
+  </div>
+</form>
 {% endblock %}
