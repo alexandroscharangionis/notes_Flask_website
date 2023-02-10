@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, flash
 
 # Set up blueprint variable for Flask app (actual blueprint is called the same as the variable it's contained in)
 auth = Blueprint("auth", __name__)
@@ -23,14 +23,14 @@ def sign_up():
         password2 = request.form.get("password2")
 
         if len(email) < 4:
-            pass
+            flash("E-mail must be at least 4 characters.", category="error")
         elif len(first_name) < 2:
-            pass
+            flash("Name must be at least 2 characters.", category="error")
         elif password1 != password2:
-            pass
+            flash("Passwords do not match.", category="error")
         elif len(password1) < 7:
-            pass
+            flash("Password must be at least 7 characters.", category="error")
         else:
-            # add user to database
-            pass
+            flash("Account created successfully!", category="success")
+
     return render_template("signup.html")
