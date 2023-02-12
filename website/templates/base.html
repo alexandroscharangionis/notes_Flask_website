@@ -28,18 +28,22 @@
       </button>
       <div class="collapse navbar-collapse" id="navbar">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <!-- 'user.is_authenticated' is inserted from current_user method in views.py -->
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="/" id="home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout" id="logout">Log out</a>
+          </li>
+          {% else %}
           <li class="nav-item">
             <a class="nav-link" href="/login" id="login">Log in</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/sign-up" id="signup">Sign up</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/logout" id="logout">Log out</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/" id="home">Home</a>
-          </li>
+          {% endif %}
         </ul>
       </div>
     </nav>
