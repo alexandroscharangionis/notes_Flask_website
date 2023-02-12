@@ -10,5 +10,5 @@ views = Blueprint("views", __name__)
 # Decorator that prevents accessing homepage unless logged in
 @login_required
 def home():
-    # 'user' arg references the current user via the current_user method inside the html template, so we can display some html elements only of user is signed-in
+    # 'user' arg references the current user via the current_user method inside the html template, so we can display some html elements only if user is signed-in
     return render_template("home.html", user=current_user)
