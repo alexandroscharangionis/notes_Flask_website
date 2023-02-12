@@ -27,8 +27,8 @@ def login():
                 flash("Incorrect password.", category="error")
         else:
             flash("User does not exist.", category="error")
-
-    return render_template("login.html")
+    # 'user' arg references the current user via the current_user method inside the html template, so we can display some html elements only of user is signed-in
+    return render_template("login.html", user=current_user)
 
 
 @auth.route("/logout")
@@ -70,4 +70,5 @@ def sign_up():
             flash("Account created successfully!", category="success")
             return redirect(url_for("views.home"))
 
-    return render_template("signup.html")
+    # 'user' arg references the current user via the current_user method inside the html template, so we can display some html elements only of user is signed-in
+    return render_template("signup.html", user=current_user)
