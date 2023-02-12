@@ -32,8 +32,12 @@ def login():
 
 
 @auth.route("/logout")
+# Decorator that prevents logout function being called if no user is logged in
+@login_required
 def logout():
-    return "<p>Logout</p>"
+    # Logs out current logged-in user:
+    logout_user()
+    return redirect(url_for("auth.login"))
 
 
 @auth.route("/sign-up", methods=["GET", "POST"])
